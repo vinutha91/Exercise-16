@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Jun 23 12:46:13 IST 2019
+#Sun Jun 23 14:04:13 IST 2019
 124.path=www/res/icon/ios/icon-76.png
 60.set=ASSET
 52.set=ASSET

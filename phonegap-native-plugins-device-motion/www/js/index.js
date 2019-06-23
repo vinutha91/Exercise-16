@@ -16,6 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var isDeviceReady = false;
+var watchId;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -34,6 +36,12 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        isDeviceReady = true;
+
+        var options = {
+            frequency: 10
+        };
+        watchId = navigator.accelerometer.watchAcceleration(successWatchCallback, errorWatchCallback, options);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -47,3 +55,35 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+function getAccelerometerData() {
+    if (isDeviceReady) {
+        navigator.accelerometer.getCurrentAcceleration(successCallback, errorCallback);
+    } else {
+        alert("Device is not ready yet!");
+    }
+}
+
+function stopData() {
+    navigator.accelerometer.clearWatch(watchId);
+}
+
+function successCallback(data) {
+    alert('Acceleration data: x: ' + data.x + ' y: ' + data.y + ' z: ' + data.z + ' Timestamp: ' + data.timestamp);
+}
+
+function errorCallback(error) {
+    alert("Error");
+}
+
+function successWatchCallback(data) {
+    var time = new Date(data.timestamp);
+
+    var accDataHTML = 'x: ' + data.x + '<br/>y: ' + data.y + '<br/> z: ' + data.z;
+
+    document.getElementById('accelerometerData').innerHTML = accDataHTML;
+}
+
+function errorWatchCallback(error) {
+    alert("Error");
+}

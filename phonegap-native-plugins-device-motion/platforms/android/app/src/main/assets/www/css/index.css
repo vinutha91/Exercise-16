@@ -113,3 +113,11 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+table {
+    width: 100%;
+}
+
+table tr td {
+    border: 1px solid black;
+}
