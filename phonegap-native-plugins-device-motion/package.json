@@ -1,1 +1,1 @@
-{"name":"com.phonegap.phonegapnativepluginsdevicemotion","version":"1.0.0","displayName":"helloworld","cordova":{"platforms":["android"]},"dependencies":{"cordova-android":"~7.1.4"}}
+{"name":"com.phonegap.phonegapnativepluginsdevicemotion","version":"1.0.0","displayName":"helloworld","cordova":{"platforms":["android"]},"dependencies":{"cordova-android":"~11.0.0"}}
